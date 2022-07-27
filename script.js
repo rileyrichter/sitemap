@@ -15,6 +15,10 @@ experimentGroupTwo = document.querySelector("#pagetwo");
 pageList = [];
 objectList = [];
 
+window.addEventListener("load", (event) => {
+  submit.addEventListener("click", passValues);
+});
+
 String.prototype.toProperCase = function () {
   return this.replace(/\w\S*/g, function (txt) {
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -54,10 +58,11 @@ window.addEventListener("load", (event) => {
     });
 });
 
-submit.onClick = function () {
+function passValues() {
+  console.log("hey");
   exName.innerText = experimentName.value;
   exStart.innerText = experimentStart.value;
   exEnd.innerText = experimentEnd.value;
   exUrl1.innerText = experimentGroupOne.value;
   exUrl2.innerText = experimentGroupTwo.value;
-};
+}
