@@ -10,33 +10,35 @@ String.prototype.toProperCase = function () {
   });
 };
 
-fetch(baseUrl)
-  .then((response) => response.json())
-  .then((data) => {
-    data.forEach((item) => {
-      let rip = item.replace(/(https:\/\/richmondtillwedie\.com\/)/gm, "");
-      let replace = rip.replaceAll("/", ": ");
-      let name = replace.replaceAll("-", " ");
+window.addEventListener("load", (event) => {
+  fetch(baseUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((item) => {
+        let rip = item.replace(/(https:\/\/richmondtillwedie\.com\/)/gm, "");
+        let replace = rip.replaceAll("/", ": ");
+        let name = replace.replaceAll("-", " ");
 
-      if (name === "") {
-        title = "Home";
-      } else {
-        title = name.toProperCase();
-      }
+        if (name === "") {
+          title = "Home";
+        } else {
+          title = name.toProperCase();
+        }
 
-      let option = document.createElement("option");
-      option.text = title;
-      option.value = item;
-      selectOne.appendChild(option);
+        let option = document.createElement("option");
+        option.text = title;
+        option.value = item;
+        selectOne.appendChild(option);
 
-      let optionTwo = document.createElement("option");
-      optionTwo.text = title;
-      optionTwo.value = item;
-      selectTwo.appendChild(optionTwo);
+        let optionTwo = document.createElement("option");
+        optionTwo.text = title;
+        optionTwo.value = item;
+        selectTwo.appendChild(optionTwo);
 
-      objectList.push({ page: title, url: item });
+        objectList.push({ page: title, url: item });
+      });
+    })
+    .then(() => {
+      console.table(objectList);
     });
-  })
-  .then(() => {
-    console.table(objectList);
-  });
+});
