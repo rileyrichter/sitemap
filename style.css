@@ -139,5 +139,5 @@
   .select2-results
   ul
   .select2-results__option--highlighted[aria-selected] {
-  background-color: #3498db;
+  background-color: #3e63f8;
 }
