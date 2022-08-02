@@ -1,3 +1,8 @@
+//runs on the front-end
+//on page load, fetch the node js backend and get the sitemap links
+//then, display the sitemap links in the front-end select fields
+//some of this code is just to pass values to the success state of the form
+
 const baseUrl = "https://bparker.api.stdlib.com/scrape-xml@dev/";
 selectOne = document.querySelector("#pageone");
 selectTwo = document.querySelector("#pagetwo");
